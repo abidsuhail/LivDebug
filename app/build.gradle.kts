@@ -1,8 +1,8 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    id("maven-publish")
 }
-
 android {
     namespace = "com.abid.livdebug"
     compileSdk = 34
@@ -32,6 +32,18 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+}
+afterEvaluate {
+    extensions.configure<PublishingExtension> {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+                groupId = "com.github.abidsuhail"
+                artifactId = "livDebug"
+                version = "2.0.0"
+            }
+        }
     }
 }
 
