@@ -1,10 +1,7 @@
 package com.abid.livdebug
 
-import com.abid.livdebug.LivDebug.livDebug
-import com.abid.livdebug.LivDebug.livError
+import com.abid.livdebug.LiveDebug.liveError
 import org.junit.Test
-
-import org.junit.Assert.*
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -14,6 +11,6 @@ import org.junit.Assert.*
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
-        livError("hellow")
+        liveError("hellow")
     }
 }
