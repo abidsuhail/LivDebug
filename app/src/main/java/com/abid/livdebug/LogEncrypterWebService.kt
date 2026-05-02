@@ -16,7 +16,12 @@ sealed class LogTagType(val type:String){
     data object ERROR:LogTagType("ERROR")
     data object VERBOSE:LogTagType("VERBOSE")
 }
-class LogEncrypterWebService(private val webhookUrl:String?,private val projectId:String?,private val encryptor:LogEncryptor?) {
+class LogEncrypterWebService(
+    private val webhookUrl: String?,
+    private val projectId: String?,
+    private val encryptor: LogEncryptor?,
+    private val sessionId: String
+) {
     private val client = OkHttpClient()
     private val scope = CoroutineScope(Dispatchers.IO + SupervisorJob())
     fun sendLogToServer(message: String, tag: LogTagType) {
@@ -27,6 +32,7 @@ class LogEncrypterWebService(private val webhookUrl:String?,private val projectI
             try {
                 // 1. Prepare Data
                 val rawJson = JSONObject().apply {
+                    put("sessionId",sessionId)
                     put("message", message)
                     put("tag", tag.type)
                     put("timestamp", System.currentTimeMillis())
@@ -49,7 +55,10 @@ class LogEncrypterWebService(private val webhookUrl:String?,private val projectI
                     .build()
 
                 client.newCall(request).execute().use { response ->
-                    if (!response.isSuccessful) println("LiveLogger Fail: ${response.code}")
+                    if (response.isSuccessful) {
+                    }else{
+                        Log.e(this::class.java.simpleName,"LogPulse Fail: ${response.code}")
+                    }
                 }
             } catch (e: Exception) {
                 Log.e(this::class.java.simpleName,e.toString())

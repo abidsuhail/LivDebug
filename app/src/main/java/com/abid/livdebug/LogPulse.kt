@@ -3,6 +3,7 @@ package com.abid.livdebug
 import android.content.Context
 import android.util.Log
 import com.abid.livdebug.LogEncrypterManager.hashAppPackageString
+import java.util.UUID
 
 object LogPulse {
 
@@ -17,11 +18,13 @@ object LogPulse {
      * @param encryptor Your AES encryption logic
      */
     fun init(context: Context, url: String, encryptor: LogEncryptor,enableSendProdLogsToServer:Boolean=false) {
+        val sessionId = UUID.randomUUID().toString().replace("-", "")
         this.enableSendProdLogsToServer = enableSendProdLogsToServer
         this.logService = LogEncrypterWebService(
             webhookUrl = url,
             projectId = hashAppPackageString(context.packageName),
-            encryptor = encryptor
+            encryptor = encryptor,
+            sessionId = sessionId
         )
     }
     /**
