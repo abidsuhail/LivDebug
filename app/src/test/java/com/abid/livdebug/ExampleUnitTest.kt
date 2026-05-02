@@ -1,6 +1,6 @@
 package com.abid.livdebug
 
-import com.abid.livdebug.LiveDebug.liveError
+import com.abid.livdebug.LogPulse.liveError
 import org.junit.Test
 
 /**

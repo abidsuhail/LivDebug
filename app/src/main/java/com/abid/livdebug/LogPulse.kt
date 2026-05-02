@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.Log
 import com.abid.livdebug.LogEncrypterManager.hashAppPackageString
 
-object LiveDebug {
+object LogPulse {
 
     /** Should logs be sent in production? */
     private var enableSendProdLogsToServer = false
@@ -27,7 +27,7 @@ object LiveDebug {
     /**
      * @param msg log message
      * */
-    fun Any.liveDebug(msg: String) {
+    fun Any.pulse(msg: String) {
         Log.d("[${this::class.java.simpleName}]", msg)
         if (logService==null) {
             return
@@ -39,7 +39,7 @@ object LiveDebug {
     /**
      * @param msg error message
      * */
-    fun Any.liveError(msg: String) {
+    fun Any.pulseError(msg: String) {
         Log.e("[${this::class.java.simpleName}]", msg)
         if (logService==null) {
             return
