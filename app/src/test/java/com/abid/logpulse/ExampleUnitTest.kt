@@ -1,6 +1,5 @@
-package com.abid.livdebug
+package com.abid.logpulse
 
-import com.abid.livdebug.LogPulse.liveError
 import org.junit.Test
 
 /**
@@ -11,6 +10,5 @@ import org.junit.Test
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
-        liveError("hellow")
     }
 }

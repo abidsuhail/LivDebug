@@ -1,4 +1,4 @@
-package com.abid.livdebug
+package com.abid.logpulse
 
 import android.util.Log
 import kotlinx.coroutines.CoroutineScope

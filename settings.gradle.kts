@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "LivDebug"
+rootProject.name = "LogPulse"
 include(":app")

@@ -4,7 +4,7 @@ plugins {
     id("maven-publish")
 }
 android {
-    namespace = "com.abid.livdebug"
+    namespace = "com.abid.logpulse"
     compileSdk = 34
 
     defaultConfig {
@@ -40,7 +40,7 @@ afterEvaluate {
             create<MavenPublication>("release") {
                 from(components["release"])
                 groupId = "com.github.abidsuhail"
-                artifactId = "livDebug"
+                artifactId = "logPulse"
                 version = "2.0.1"
             }
         }

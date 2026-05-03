@@ -1,4 +1,4 @@
-package com.abid.livdebug
+package com.abid.logpulse
 
 import java.security.MessageDigest
 

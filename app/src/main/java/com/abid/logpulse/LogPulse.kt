@@ -1,8 +1,8 @@
-package com.abid.livdebug
+package com.abid.logpulse
 
 import android.content.Context
 import android.util.Log
-import com.abid.livdebug.LogEncrypterManager.hashAppPackageString
+import com.abid.logpulse.LogEncrypterManager.hashAppPackageString
 import java.util.UUID
 
 object LogPulse {

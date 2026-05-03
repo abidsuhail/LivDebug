@@ -1,4 +1,4 @@
-package com.abid.livdebug
+package com.abid.logpulse
 
 interface LogEncryptor {
     fun encrypt(plainText: String): String
